@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/bullets/playerBullet.gd" type="Script" id=1]
+[ext_resource path="res://scenes/bullets/bullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/peglen.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 2.24545
+
+[node name="PlayerBullet" instance=ExtResource( 2 )]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource( 1 )
+damage = 30
+
+[node name="Sprite" parent="." index="1"]
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 586, 531, 31, 32 )
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource( 1 )

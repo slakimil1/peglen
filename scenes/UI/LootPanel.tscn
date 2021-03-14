@@ -1,0 +1,130 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/Panel_01.png" type="Texture" id=1]
+[ext_resource path="res://assets/Panel_03.png" type="Texture" id=3]
+[ext_resource path="res://assets/Panel_02.png" type="Texture" id=4]
+[ext_resource path="res://scenes/UI/button_loot.tres" type="Theme" id=6]
+[ext_resource path="res://scripts/lootpanel.gd" type="Script" id=7]
+
+[node name="LootPanel" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Border" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 300.0
+margin_top = 200.0
+margin_right = -300.0
+margin_bottom = -100.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mainnodes" type="VBoxContainer" parent="Border"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lootslots" type="ScrollContainer" parent="Border/Mainnodes"]
+margin_right = 416.0
+margin_bottom = 238.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SlotsContainer" type="VBoxContainer" parent="Border/Mainnodes/Lootslots"]
+margin_right = 416.0
+margin_bottom = 238.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ButtonLoot" type="HBoxContainer" parent="Border/Mainnodes"]
+margin_top = 242.0
+margin_right = 416.0
+margin_bottom = 292.0
+rect_min_size = Vector2( 0, 50 )
+
+[node name="LootAllIcon" type="TextureRect" parent="Border/Mainnodes/ButtonLoot"]
+margin_right = 85.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 85, 50 )
+texture = ExtResource( 3 )
+expand = true
+
+[node name="LootAllButton" type="TextureButton" parent="Border/Mainnodes/ButtonLoot/LootAllIcon"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+texture_normal = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Border/Mainnodes/ButtonLoot/LootAllIcon/LootAllButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 6 )
+text = "Loot All"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Border/Mainnodes/ButtonLoot"]
+margin_left = 89.0
+margin_top = 18.0
+margin_right = 332.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+text = " "
+
+[node name="CloseIcon" type="TextureRect" parent="Border/Mainnodes/ButtonLoot"]
+margin_left = 336.0
+margin_right = 416.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 80, 0 )
+texture = ExtResource( 3 )
+expand = true
+
+[node name="CloseButton" type="TextureButton" parent="Border/Mainnodes/ButtonLoot/CloseIcon"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+texture_normal = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Border/Mainnodes/ButtonLoot/CloseIcon/CloseButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 6 )
+text = "Close"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Border/Mainnodes/ButtonLoot/CloseIcon/CloseButton" to="." method="_on_CloseButton_pressed"]

@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/box_01.png" type="Texture" id=1]
+[ext_resource path="res://scenes/UI/loot_name.tres" type="Theme" id=2]
+[ext_resource path="res://scenes/UI/loot_count.tres" type="Theme" id=3]
+[ext_resource path="res://scenes/UI/Slot.gd" type="Script" id=4]
+
+[node name="Loot" type="HBoxContainer" groups=[
+"LootPanelSlots",
+]]
+margin_right = 416.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 0, 70 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LootIcon" type="TextureRect" parent="."]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="LootButton" type="TextureButton" parent="LootIcon"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="LootIcon/LootButton"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -70.0
+margin_top = -35.0
+rect_min_size = Vector2( 70, 35 )
+theme = ExtResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 74.0
+margin_right = 416.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource( 2 )
+text = "Gold"
+valign = 1
+[connection signal="pressed" from="LootIcon/LootButton" to="." method="_on_LootButton_pressed"]

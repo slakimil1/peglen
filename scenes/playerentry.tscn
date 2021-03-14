@@ -1,0 +1,70 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/playerentry.gd" type="Script" id=1]
+
+[node name="PlayerEntry" type="MenuButton"]
+margin_right = 12.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 210, 20 )
+button_mask = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerRow" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="PlayerRow"]
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+expand = true
+
+[node name="lbName" type="Label" parent="PlayerRow"]
+margin_left = 24.0
+margin_top = 3.0
+margin_right = 24.0
+margin_bottom = 17.0
+valign = 1
+
+[node name="lbLatency" type="Label" parent="PlayerRow"]
+margin_left = 28.0
+margin_top = 3.0
+margin_right = 28.0
+margin_bottom = 17.0
+valign = 1
+
+[node name="pnKickBan" type="Panel" parent="."]
+visible = false
+margin_left = 3.0
+margin_top = 61.0
+margin_right = 184.0
+margin_bottom = 130.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="txtReason" type="LineEdit" parent="pnKickBan"]
+margin_right = 158.0
+margin_bottom = 47.0
+placeholder_text = "Reason..."
+
+[node name="btCancel" type="Button" parent="pnKickBan"]
+margin_left = 5.26318
+margin_top = 46.316
+margin_right = 59.2632
+margin_bottom = 66.316
+text = "Cancel"
+
+[node name="btKickBan" type="Button" parent="pnKickBan"]
+margin_left = 76.8424
+margin_top = 46.316
+margin_right = 88.8424
+margin_bottom = 66.316
+[connection signal="pressed" from="pnKickBan/btCancel" to="." method="_on_btCancel_pressed"]
+[connection signal="pressed" from="pnKickBan/btKickBan" to="." method="_on_btKickBan_pressed"]
